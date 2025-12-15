@@ -1,0 +1,4 @@
+region,warmup_rid,start_rid,warmup_bid,warmup_count,start_bid,start_count,end_bid,end_count
+5,3,4,124.0,567866,98.0,13479,124.0,144748
+9,7,8,126.0,81,122.0,145632,98.0,12813
+37,35,36,126.0,361,122.0,145625,36.0,1
