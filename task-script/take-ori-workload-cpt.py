@@ -9,6 +9,8 @@ parser.add_argument("--m5out-output-dir", help="The directory to store the m5out
 parser.add_argument("--gem5-binary-dir", help="The directory to store the gem5 binary", required=True, type=str)
 parser.add_argument("--arch", help="The architecture to run the workloads on", required=True, type=str, choices=[ "arm", "x86"])
 parser.add_argument("--checkpoint-output-dir", help="The directory to store the checkpoints", required=True, type=str)
+parser.add_argument("--benchmark", "-b", help="The benchmark to run. Input as a list of benchmarks, for example, -b='bt cg ep'. (default: bt, cg, ep, ft, is, lu, mg, sp)", default=["bt", "cg", "ep", "ft", "is", "lu", "mg", "sp"], action="append")
+parser.add_argument("--threads", "-t", help="The number of threads to run the workloads with", required=False, type=int, default=4)
 args = parser.parse_args()
 
 checkpoint_dir = Path(args.checkpoint_dir)
@@ -19,9 +21,9 @@ m5out_output_dir = Path(args.m5out_output_dir)
 gem5_binary_dir = Path(args.gem5_binary_dir)
 arch = args.arch
 
-benchmarks = ["bt", "cg", "ep", "ft", "is", "lu", "mg", "sp"]
+benchmarks = args.benchmark
 size = "A"
-threads = 4
+threads = args.threads
 
 workdir = Path().cwd()
 
