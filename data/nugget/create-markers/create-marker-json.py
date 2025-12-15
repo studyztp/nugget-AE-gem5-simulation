@@ -4,7 +4,7 @@ import pandas as pd
 
 benchmarks = ["bt_A", "cg_A", "ep_A", "ft_A", "is_A", "lu_A", "mg_A", "sp_A"]
 
-marker_dir = Path("/home/studyztp/test_ground/experiments/nugget-gem5/gem5-experiments/data/nugget/create-markers")
+marker_dir = Path().__file__.parent
 marker_addr_dir = Path(marker_dir/"marker_addr")
 
 isas = ["arm", "x86"]

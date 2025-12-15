@@ -1,8 +1,15 @@
 from pathlib import Path
 import pandas as pd
 import json
+import argparse
 
-workdir = Path("/home/studyztp/test_ground/experiments/nugget-micro/gem5-experiments")
+parser = argparse.ArgumentParser(description="Create Nugget evaluation dataframe")
+parser.add_argument("--workdir", help="The working directory containing m5outs and data", required=True, type=str)
+args = parser.parse_args()
+
+workdir = Path(args.workdir)
+if not workdir.is_dir():
+    raise FileNotFoundError(f"Working directory not found at {workdir}")
 nugget_restore_data_dir = Path(workdir/"m5outs/nugget/nugget-restore")
 detailed_baseline_data_dir = Path(workdir/"m5outs/detailed-baseline")
 k_means_clustering_data_dir = Path(workdir/"data/nugget/info/k-means-selections")

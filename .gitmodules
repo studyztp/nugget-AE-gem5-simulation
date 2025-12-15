@@ -4,6 +4,3 @@
 [submodule "gem5-resources"]
 	path = gem5-resources
 	url = https://github.com/studyztp/gem5-resources.git
-[submodule "nugget_util"]
-	path = nugget_util
-	url = https://github.com/studyztp/nugget_util.git
